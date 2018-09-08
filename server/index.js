@@ -6,7 +6,7 @@ const Articles = require('./models/articles');
 
 
 mongoose.Promise = global.Promise;
-mongoose.connect("mongodb://localhost:27018/quiz", { useNewUrlParser: true });
+mongoose.connect("mongodb://localhost:27017/quiz", { useNewUrlParser: true });
 const db = mongoose.connection;
 
 //Bind connection to error event (to get notification of connection errors)
