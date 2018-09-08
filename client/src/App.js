@@ -9,12 +9,15 @@ class App extends Component {
 
   componentDidMount() {
     this.callApi()
-      .then(res => this.setState({ response: res.express }))
+      .then(res => {
+        console.log('res', res);
+        this.setState({ response: res[0].title })
+      })
       .catch(err => console.log(err));
   }
 
   callApi = async () => {
-    const response = await fetch('/example');
+    const response = await fetch('/api/question');
     const body = await response.json();
 
     if (response.status !== 200) throw Error(body.message);
