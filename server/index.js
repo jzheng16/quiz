@@ -16,34 +16,29 @@ db.once('open', function () {
   console.log('we are open for business!');
 });
 
-app.get('/example', (req, res) => {
-  Articles.find({}, (err, articles) => {
-    if (err) {
-      console.log(err);
-    }
-    console.log(articles);
+app.get('/example', async (req, res) => {
+  try{
+    const articles = await Articles.find({})
     res.send(articles);
-  })
+  } catch (err) {
+    throw err
+    }
 })
 app.get('/api/hello', (req, res) => {
-  res.send({ express: 'Hello From Express' });
+  res.send({ express: 'Hello From Express' })
 });
 
-app.post('/examplePOST', (req, res) => {
-  Articles.create({
+app.post('/examplePOST', async (req, res) => {
+  try{
+    await Articles.create({
     title: 'Article Two',
     author: 'Joey',
     body: 'This is testing mongo'
-  }, (err, article) => {
-    if (err) {
-      console.log('err', err);
-
-    }
-    res.send(article);
-    console.log('saved!');
-
-    // saved!
-  });
+    })
+  } catch (err) {
+  throw err
+  }
+  res.send(article);
 })
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
