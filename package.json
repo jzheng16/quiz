@@ -1,18 +1,27 @@
 {
-  "name": "example-create-react-app-express",
-  "version": "1.0.0",
-  "scripts": {
-    "client": "cd client && yarn start:react",
-    "server": "nodemon server/index.js",
-    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
-  },
-  "dependencies": {
-    "express": "^4.16.3",
-    "mongoose": "^5.2.13"
-  },
+  "name": "quiz",
+  "version": "0.1.0",
+  "private": true,
   "devDependencies": {
     "concurrently": "^4.0.1",
     "morgan": "^1.9.0",
-    "nodemon": "^1.18.4"
-  }
+    "nodemon": "^1.18.4",
+    "react-scripts": "1.1.5"
+  },
+  "dependencies": {
+    "express": "^4.16.3",
+    "mongoose": "^5.2.13",
+    "react": "^16.5.0",
+    "react-dom": "^16.5.0",
+    "react-router-dom": "^4.3.1"
+  },
+  "scripts": {
+    "start:react": "concurrently --kill-others \"nodemon server/index.js\" \"react-scripts start\"",
+    "build-css": "node-sass-chokidar src/ -o src/",
+    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "proxy": "http://localhost:5000"
 }
