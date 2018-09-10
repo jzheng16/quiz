@@ -2,26 +2,28 @@ const router = require('express').Router();
 const Question = require('../db/models/question');
 
 router.get('/', async (req, res) => {
+  let questions;
   try {
-    const questions = await Question.find({});
-    res.json(questions);
+    questions = await Question.find({});
   } catch (err) {
     res.status(404).send(err);
   }
+  res.json(questions);
 });
 
 
 router.post('/', async (req, res) => {
+  let newQuestion;
   try {
-    let newQuestion = await Question.create({
+    newQuestion = await Question.create({
       title: 'Question Numba 1',
       answer: '42',
-      body: 'What is the meaning of life?'
+      body: 'What is the meaning of life?',
     });
-    res.json(newQuestion);
   } catch (err) {
     res.status(404).send(err);
   }
+  res.json(newQuestion);
 });
 
 module.exports = router;
