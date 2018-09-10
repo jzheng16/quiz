@@ -1,13 +1,14 @@
 const express = require('express');
+
 const app = express();
 const port = process.env.PORT || 5000;
+const morgan = require('morgan');
 const db = require('./db');
 const api = require('./routes/api');
-const morgan = require('morgan');
 
-//Bind connection to error event (to get notification of connection errors)
+// Bind connection to error event (to get notification of connection errors)
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
-db.once('open', function () {
+db.once('open', () => {
   // we're connected!
   console.log('we are open for business!');
 });
@@ -26,6 +27,6 @@ app.use((err, req, res) => {
   res.status(500).send(err.message || 'Something broke!');
 });
 
-
-
 app.listen(port, () => console.log(`Listening on port ${port}`));
+
+module.exports = app;
