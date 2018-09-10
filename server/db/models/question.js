@@ -3,16 +3,16 @@ const mongoose = require('mongoose');
 const questionSchema = mongoose.Schema({
   title: {
     type: String,
-    required: true
+    required: true,
   },
   answer: {
     type: String,
-    required: true
+    required: true,
   },
   body: {
     type: String,
-    required: true
-  }
+    required: true,
+  },
 });
 
-const Question = module.exports = mongoose.model('Question', questionSchema);
+module.exports = mongoose.model('Question', questionSchema);
