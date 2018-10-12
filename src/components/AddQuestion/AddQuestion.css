@@ -1,0 +1,11 @@
+.form-input {
+  display: block; }
+
+.question-list {
+  list-style: none; }
+
+.question {
+  margin-bottom: 1em; }
+
+.title {
+  font-size: 2em; }
