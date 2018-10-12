@@ -7,7 +7,6 @@
     "concurrently": "^4.0.1",
     "eslint": "^5.5.0",
     "eslint-config-airbnb": "^17.1.0",
-    "eslint-config-react-app": "^2.1.0",
     "eslint-plugin-flowtype": "^2.50.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
@@ -17,17 +16,23 @@
     "supertest": "^3.3.0"
   },
   "dependencies": {
+    "apollo-boost": "^0.1.16",
     "axios": "^0.18.0",
+    "cors": "^2.8.4",
     "eslint-plugin-jest": "^21.22.0",
     "express": "^4.16.3",
+    "express-graphql": "^0.6.12",
+    "graphql": "^14.0.2",
     "mongoose": "^5.2.13",
     "morgan": "^1.9.0",
+    "node-sass-chokidar": "^1.3.4",
     "react": "^16.5.0",
+    "react-apollo": "^2.2.4",
     "react-dom": "^16.5.0",
     "react-router-dom": "^4.3.1"
   },
   "scripts": {
-    "start:react": "concurrently --kill-others \"nodemon server/index.js\" \"react-scripts start\"",
+    "start": "concurrently --kill-others \"nodemon server/index.js\" \"react-scripts start\"",
     "build-css": "node-sass-chokidar src/ -o src/",
     "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
     "build": "react-scripts build",
