@@ -17,6 +17,8 @@ const QuestionType = new GraphQLObjectType({
   }),
 });
 
+console.log('Hi!')
+
 // Mutations
 
 const Mutation = new GraphQLObjectType({
