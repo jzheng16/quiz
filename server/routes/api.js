@@ -1,5 +1,5 @@
 const api = require('express').Router();
-
+console.log('Hey, Im here!')
 
 api
   .use('/question', require('./question'));
